@@ -1,0 +1,19 @@
+# Fas load del tree:
+ ete4 explore -t ../../mammal_tree.nw
+
+# Despres fas 
+Chrome / Firefox → F12
+
+# I a la consol escrius
+"allow pasting"
+
+# Després escrius això:
+window.addEventListener("click", (e) => {
+  console.log("CLICK", {
+    x: e.clientX,
+    y: e.clientY,
+    target: e.target
+  });
+});
+
+I ja pots monitoritzar tots els clicks

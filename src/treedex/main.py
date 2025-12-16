@@ -45,13 +45,16 @@ app.layout = html.Div([
     html.Div([
         html.H2("Tree", style={'textAlign': 'center', 'padding': '10px'}),
 
-        html.Div("Aquí aniria l'arbre...",
-                 style={
-                     'textAlign': 'center',
-                     'border': '1px solid #ccc',
-                     'height': '200px',
-                     'marginBottom': '20px'
-                 }),
+        # Okay this is running but not ideal, because it requires to run ete4 separately. We should run it from the main code and call the server.
+        # To run ete4: ete4 explore -t ../../mammal_tree.nw
+        html.Iframe(
+            src="http://127.0.0.1:5001",
+            style={
+                "width": "100%",
+                "height": "400px",
+                "border": "1px solid #ccc"
+            }
+        ),
 
         dash_table.DataTable(
             id="species-table",
