@@ -5,6 +5,7 @@
 import dash
 from dash import dcc, html, dash_table
 import pandas as pd
+from dash_split import Split
 import plotly.express as px
 
 # Importem les nostres funcions modulars
@@ -39,7 +40,7 @@ app = dash.Dash(__name__)
 # Layout
 # ============================
 
-app.layout = html.Div([
+app.layout = Split([
 
     # Left column: Tree + Table
     html.Div([
