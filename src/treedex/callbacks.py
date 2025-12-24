@@ -24,3 +24,28 @@ def register_callbacks(app, df_table, df_scatter):
 
         # Returning updated scatter plot with highlighted points
         return make_scatter_plot(df_scatter, x="X", y="Y", title="Demo Scatter Plot", selection=selection_idx)
+    
+    @app.callback(
+        Output('left-column', 'style'),
+        Output('right-column', 'style'),
+        Input('left-width-slider', 'value')
+    )
+    def resize_columns(width):
+        left_style = {
+            'width': f'{width}px',
+            'display': 'inline-block',
+            'verticalAlign': 'top',
+            'padding': '10px',
+            'borderRight': '2px solid #ccc',
+            'height': '90vh',
+            'overflow': 'auto'
+        }
+        right_style = {
+            'display': 'inline-block',
+            'padding': '10px',
+            'verticalAlign': 'top',
+            'height': '90vh',
+            'overflow': 'auto',
+            'width': f'calc(100% - {width}px)'
+        }
+        return left_style, right_style
